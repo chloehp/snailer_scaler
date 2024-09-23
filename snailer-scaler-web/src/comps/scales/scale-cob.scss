@@ -1,0 +1,135 @@
+.scales-area {
+    position: absolute;
+    width: 36%; height: 15%;
+    left: 51%; top: 30%;
+    color: #41473c;  
+    border-radius: 30px;
+    font-size: 27px;
+    font-family: AlumniSansIt;
+    z-index: 120;
+    pointer-events: none;
+
+    @media (min-height: 450px) {
+      font-size: 36px;
+    }
+    @media (orientation: portrait) {
+      left: 50%; top: 39%;
+      translate: -50%;
+      width: 90%; height: 18%;
+      max-width: 486px;
+    }
+    &--scale {
+      pointer-events: auto;
+      
+      &--type, &--note {
+        position: absolute;
+        top: 50%; 
+        translate: 0 -50%;
+        height: 75%; 
+        background-color: #899d7e;
+        line-height: 1.5em;
+        text-align: center;
+        border-radius: 12px;
+        cursor: pointer;
+        
+        @media (min-height: 450px) {
+          top: 45%; 
+          height: 54%; 
+          border-radius: 24px;
+          line-height: 2em;
+        }
+      }
+      &--in {
+          position: absolute;
+          top: 50%; left: 72%;
+          translate: 0 -50%;
+          margin: 0;
+
+          @media (min-height: 450px) {
+            top: 45%; left: 64%;
+          }
+      }
+      &--type {
+        left: 3%;
+        width: 66%;
+
+        @media (min-height: 450px) {
+          left: 6%;
+          width: 54%;
+        }
+      }
+      &--note {
+        right: 3%;
+        width: 18%;
+
+        @media (min-height: 450px) {
+          right: 6%;
+          width: 21%;
+        }
+      }
+    }
+}
+
+.scales-list {
+  position: absolute;
+  bottom: 3%; left: 3%;
+  height: 72%; width: 94%;
+  z-index: 126;
+  border-radius: 12px;
+  background-color: #899d7e;
+  color: #e1f0da;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: space-around;
+  transition: opacity 150ms linear, visibility 150ms linear;
+  
+  @media (min-height: 450px) {
+    border-radius: 30px;
+    bottom: 5%; left: 5%;
+    width: 90%;
+  }
+  &--container {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 6px;
+    overflow-y: auto; overflow-x: hidden;  
+
+    @media (min-width: 1080px) {
+      padding: 15px 30px;
+    }
+    &--block {
+      min-width: 3em;
+      width: 100%;
+      background-color: #41473C;
+      border-radius: 6px;
+      margin: 6px 0;
+      padding: 9px;
+      text-align: center;
+      text-wrap: initial;
+      cursor: pointer;
+      transition: scale 300ms;
+
+      @media (min-width: 1080px) {
+        border-radius: 15px;
+        margin: 12px 0;
+        padding: 15px;
+        text-align: left;
+        text-wrap: nowrap;
+      }
+    }
+    &--block.block-selected {
+      background-color: #BFD8AF;
+      color: #41473C;
+      font-weight: bold;
+    }
+    @media (min-width: 1080px) {    
+      &--block:hover {scale: 1.1;}
+    } 
+  }
+}
+.scales-list.open {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,174 @@
+@font-face {
+  font-family: AlumniSansIt;
+  src: url(./assets/fonts/AlumniSansInlineOne-Italic.ttf);
+}
+@font-face {
+  font-family: OpenDyslexic;
+  src: url(./assets/fonts/OpenDyslexic-Regular.otf);
+}
+
+.clicker {cursor: pointer;}
+@media (min-width: 1080px) {     
+  .clicker:hover {filter: brightness(0.75);}
+  .clicker:active {scale: 1.06;}
+}
+
+.center {
+  position: absolute;
+  left: 50%; top: 50%;
+  translate: -50% -50%;
+  margin: 0;
+}
+
+.fill {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+}
+
+.width-0 {
+  width: 0 !important;
+  margin: 0 !important;
+  pointer-events: none;
+  font-size: 0;
+}
+
+.snackground {
+  background-color: #8ea781;  
+  background-image: url(./assets/img/snailexport2.png);
+  background-size: auto 150%;
+  background-position: center;
+  //background-repeat: no-repeat;
+  background-size: 570px;
+}
+
+.App {
+  position: absolute;
+  top: 0;  left: 0;
+  height: 100%;  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
+  font-family: OpenDyslexic;
+}
+h1 {
+  font-size: 27px;
+  font-weight: 300;
+
+  @media (min-height: 450px) {
+    font-size: 36px;
+  }
+}
+button {  
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+}
+
+.closeX {
+  position: absolute;
+  right: 3%; top: 3%;
+  rotate: 45deg;
+  font-size: 3em;
+  line-height: 1em;
+  color: #41473C;
+  transition: scale 90ms;
+}
+@media (min-width: 1080px) {     
+  .closeX:hover {scale: 1.2;}
+}
+
+.kb-page {
+  width: 100%;
+  max-width: 1530px;
+  min-height: 360px;
+  background-color: #BFD8AF;
+  position: relative;
+  overflow: hidden;
+}
+
+.start {
+  top: 0;
+  width: 100%; height: 100%;
+  max-width: 1530px;
+  background-color: #8ea781;
+  position: absolute;
+  visibility: visible;
+  transition: top 1s 150ms, visibility 1s 150ms;
+  z-index: 900;
+
+  &--scn { 
+    width: 300px; height: 300px;
+    text-align: center;
+    color: #41473C;
+    font-size: 240%; font-weight: 540;
+
+    @media (min-width: 1080px) {      
+      width: 450px; height: 450px;
+      font-size: 390%;
+      &--btn:hover {filter: brightness(1.2); scale: 1.1;}
+    }
+    &--btn {
+      border-radius: 100%;
+      background-color: #BFD8AF;
+      width: 100%;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      transition: scale 300ms;
+    }
+    &--btn:active {scale: 0.9;}
+    &--p {
+      width: 100%; height: auto;
+      * {margin: 0;}
+    }
+    h1 {
+      font-size: 180%;
+      line-height: 1.1em;
+    }
+  }
+}
+.start.hide {top: -120vh; visibility: hidden;}
+
+#note-displayer {
+  display: none;
+  position: absolute;
+  top: 6%;  left: 0;
+  width: 100%;
+  text-align: center;
+}
+#title-logo {
+  display: none;
+  @media (min-height: 450px) {
+    display: block;
+    position: absolute;
+    left: 15%; top: 0;
+    width: 33%; height: 24%;
+    background-image: url(./assets/img/logo-v1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: opacity 300ms;
+    
+    @media (orientation: portrait) {
+      left: 50%;
+      translate: -50%;
+      width: 60%; height: 18%;
+    }
+  }
+}
+#title-logo.hide { opacity: 0; }
+
+// GLOBAL ANIMATIONS
+.sp-bobble {animation: bobble 900ms;}
+@keyframes bobble {
+  0% {scale: 1.1;}
+  6% {scale: 0.8;}
+  24% {scale: 1.04;}
+  40% {scale: 0.93;}
+  60% {scale: 1.01;}
+  70% {scale: 0.98;}
+  90% {scale: 1.0045;}
+  100% {scale: 1;}
+}

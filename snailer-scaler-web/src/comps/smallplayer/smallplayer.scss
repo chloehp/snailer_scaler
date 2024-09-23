@@ -1,0 +1,206 @@
+.smallplayer {
+  background-color: #899D7E;
+  position: absolute;
+  overflow: hidden;     
+
+  border-radius: 15px;
+  width: 33%; height: 42%;
+  left: 15%; top: 3%;
+  
+  @media (min-width: 1080px) {
+    border-radius: 30px;
+    width: 33%; height: 21%;
+    left: 15%; top: 24%;
+  }
+  @media (orientation: portrait) {
+    left: 50%; top: 60%;
+    translate: -50%;
+    width: 90%; height: 18%;
+    max-width: 486px;
+  }
+
+  &--buttons {
+    position: absolute;
+    top: 9%;
+    width: 100%; height: 45%;
+    display: flex;
+    justify-content: space-evenly;
+    
+    @media (min-height: 450px) {
+      height: 60%;
+    }
+  
+    &--btn {
+      position: relative;
+      height: 93%;
+      top: 6%;
+      aspect-ratio: 1/1;
+      background-color: #41473C;
+      color: #899D7E;
+      border-radius: 30%;
+      cursor: pointer;
+      transition: scale 300ms;
+      div {pointer-events: none;}
+      
+      @media (min-height: 450px) {
+        height: 90%;
+        top: 0;
+      }
+  
+      &--icon {
+        position: absolute;
+        left: 50%; top: 50%;
+        translate: -50% -50%;
+        width: 54%;
+        aspect-ratio: 1/1;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    @media (min-width: 1080px) {     
+      &--btn:hover {scale: 1.1;}
+    }
+  }
+    
+  &--optionSelect {
+    position: relative;
+    width: 9%; height: 129%;
+    translate: 0 -15%;
+    color: #e1f0da;
+    text-align: center;
+    //font-family: AlumniSansIt;
+    font-size: 15px;
+    
+    @media (min-width: 1080px) {
+      translate: 0 -3%;
+      height: 100%;
+      font-size: 18px;
+      &--arrow:hover {scale: 1.2;}
+      &--arrow:active {scale: 0.9;}
+    }
+  
+    &--arrow {
+      position: absolute;
+      left: 50%;
+      translate: -50%;
+      width: 60%;
+      aspect-ratio: 1/1;
+      background-repeat: no-repeat;
+      background-size: contain;   
+      background-image: url(../../assets/symb/single-arrow.svg);
+      transition: scale 60ms linear; 
+    }
+    &--p {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+      translate: 0 -45%;
+      margin: 0;
+      rotate: 90deg;
+      text-wrap: nowrap;
+      
+      @media (min-height: 450px) {
+        rotate: 0;
+        top: 36%;
+        translate: 0;
+      }
+    }
+  }
+  
+  &--seeker {
+    position: absolute;
+    bottom: 0; 
+    width: 100%; height: 27%;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-evenly;
+    color: #BFD8AF;
+  
+    @media (min-width: 1080px) {
+      font-size: 18px;
+    }
+    &--t {
+      position: relative;
+      width: 3em; height: 3em;
+      translate: 0 -24%;
+      border-radius: 100%;
+
+      &--submit, &--text {
+        position: absolute;
+        line-height: 2.75em;
+        text-align: center;
+        border-radius: 100%;
+        border: 0; padding: 0; margin: 0;
+      }
+      &--text {
+        font-family: AlumniSansIt;
+        color: #41473c;
+        background-color: #e1f0da;
+        width: 96%; height: 96%;
+        font-size: 1.5em;
+      }
+      &--submit {
+        background-color: #41473c;
+        background-image: url(../../assets/symb/tick.svg);
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center;
+        font-size: 0;
+        width: 96%; height: 96%;
+        right: 4.5%;
+        cursor: pointer;
+        transition: right 150ms;
+      }
+    }
+    &--track {
+      position: relative;
+      height: 50%; width: 75%;
+      cursor: pointer;
+  
+      &--line {
+        position: absolute;
+        left: 0%; top: 42%;
+        width: 100%; height: 15%;
+        background-color: #BFD8AF;
+        pointer-events: none;
+      }
+      &--head {
+        position: absolute;
+        left: 0%; top: 0;
+        width: 7px; height: 100%;
+        background-color: #41473C;
+        border-radius: 6px;
+        translate: -50%;
+        pointer-events: none;
+        transition: left 60ms linear;
+      }
+    }
+  }  
+}
+
+
+#restart-spot {
+  background-image: url(../../assets/symb/restart.svg);
+}
+#play-spot {
+  background-image: url(../../assets/symb/play.svg);
+}
+#play-spot.pause { background-image: url(../../assets/symb/pause.svg); }
+
+#red-spot {
+  border-radius: 100%;
+  background-color: rgb(153, 52, 21);
+}
+#red-spot.r-s-on {
+  border-radius: 15%;
+  background-color: #000;
+}
+
+.sp-b-up {
+  top: 5%;
+  rotate: 180deg;
+}
+.sp-b-down {
+  bottom: 5%;
+}

@@ -1,0 +1,117 @@
+
+#settings {
+   position: absolute;
+   top: -120vh; left: 0;
+   visibility: hidden;
+   width: 100%; height: 100%;
+   transition: top 1s 180ms, visibility 1s 180ms;
+   z-index: 150;
+   background-color: #8ea781;
+   overflow: auto;
+
+   h1 {
+      text-align: center;
+      line-height: 2em;
+      color: #41473c;
+      background-color: #e1f0da;
+      border-radius: 15px;
+      width: 45%;
+      margin: 15px auto;
+   }
+}
+#settings.open {top: 0; visibility: visible;}
+
+.gridcon {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin: auto;
+   width: 90%;
+   position: relative;
+
+   @media (min-height: 450px) {
+      width: 54%;
+   }
+   &--g {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 21%;
+      min-width: 120px;
+      margin: 6px;
+      aspect-ratio: 18/21;
+      border-radius: 9%;
+      padding: 15px;
+      background-color: #bfd8af;
+      text-align: center;
+      font-size: 18px;
+
+      &--ico {
+         position: relative;
+         width: 100%;
+         aspect-ratio: 1/1;
+         border-radius: 9%;
+         font-family: AlumniSansIt;  
+         color: #E1F0DA;
+         background-color: #41473c;
+         background-repeat: no-repeat;
+         background-size: 60%;
+         background-position: center;
+         overflow: hidden;
+         filter: brightness(0.45);
+
+         input {
+            position: absolute;
+            left: 0;
+            width: 96%; height: 100%;
+            border: 0;
+            font-size: 3.3em;
+            font-family: inherit;
+            color: inherit;
+            text-align: center;
+            background: none;
+         }
+         &--txt {
+            position: absolute;
+            width: 100%;
+            left: 0; top: 50%;
+            translate: 0 -50%;  
+            margin: 0;
+            font-size: 2.7em;
+            text-align: center;
+            white-space: pre-wrap;
+         }
+         &--prev-ar, &--next-ar {
+            position: absolute;
+            height: 100%; width: 21%;
+            background-color: rgba(142, 167, 129, 0.45);
+            transition: scale 150ms linear;
+            
+            div {
+               width: 100%; height: 100%;
+               background-image: url(../../assets/symb/single-arrow.svg);
+               background-repeat: no-repeat;
+               background-size: 90%;
+               background-position: center;
+            }
+         }
+         @media (min-width: 1080px) {     
+            &--prev-ar:hover, &--next-ar:hover { scale: 1.1;}
+            &--prev-ar:active, &--next-ar:active { scale: 0.9;}
+         }
+         &--prev-ar {
+            left: 0;
+            div {rotate: 90deg;}
+         }
+         &--next-ar {
+            right: 0;
+            div {rotate: -90deg;}
+         }
+      }
+      &--ico.pressed {filter: brightness(1);}
+   }
+}
+
+#settings-beat {background-image: url(../../assets/symb/beat-rounding.svg);}
+#settings-qwerty {background-image: url(../../assets/symb/qwerty.svg);}
+#settings-visnotes {background-image: url(../../assets/symb/note-bool.svg);}

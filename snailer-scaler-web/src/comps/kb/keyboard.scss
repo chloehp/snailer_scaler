@@ -1,0 +1,72 @@
+.keyboard {
+    width: 98%; height: 50%; 
+    bottom: 1%; left: 1%;
+    position: absolute;
+    display: flex;
+    border-right: #798E6D 2px solid; //border-top: #798E6D 1px solid; border-bottom: #798E6D 1px solid;
+    background-color: #798E6D;
+    border-radius: 15px;
+    overflow: hidden;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.36));
+    transition: bottom 600ms ease-in-out, visibility 600ms ease-in-out;
+    visibility: visible;
+    z-index: 90;
+    touch-action: none;
+    user-select: none;
+
+    @media (min-width: 1080px) {
+        border-radius: 30px;
+    }
+    @media (orientation: portrait) {
+        height: auto;
+        max-height: 195px;
+        aspect-ratio: 126/39; 
+    }
+    &--oct-group {
+        width: calc(100% / 3);
+        display: flex;
+        flex-shrink: 0;
+    }
+}
+.keyboard.hide {bottom: -75%; visibility: hidden;}
+
+.w-key {
+    background-color: #E1F0DA;
+    border-left: #798E6D 2px solid;
+    width: 100%; height: 100%;
+    z-index: 90;
+    color: #41473c;
+    font-weight: 400;
+    filter: contrast(1);
+    transition: width 600ms, margin 600ms; 
+    @media (max-width: 300px){font-size: 0;}
+}
+.w-key.press { background-color: #929c8d; }
+
+$b-key-width: 8.4%;
+.b-key {
+    background-color: #41473C;
+    width: $b-key-width; height: 54%;
+    margin: 0 calc($b-key-width / -2);
+    position: relative;
+    flex-shrink: 0;
+    z-index: 100;
+    color: #e1f0da;
+    filter: contrast(1);   
+    transition: width 600ms, height 600ms, margin 600ms; 
+    @media (max-width: 960px){font-size: 0;}
+}
+.b-key.press { background-color: #272b25; }
+.b-key.scales-on {
+    border-left: #798E6D 1px solid;
+    margin: 0;
+    width: 15%; height: 100%;
+}
+
+.key-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}

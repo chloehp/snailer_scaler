@@ -1,0 +1,164 @@
+.tracker {
+    position: absolute;
+    left: 16%; top: 1%;
+    width: 83%; height: 98%;
+    background-color: #E1F0DA;
+    border: #798E6D 2px solid;
+    border-radius: 15px;
+    visibility: visible;
+    z-index: 30;
+    transition: opacity 900ms, visibility 900ms;
+    overflow: auto;
+    
+    @media (min-height: 450px) {
+        border-radius: 30px;
+    }
+}
+.tracker.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.track {
+    position: relative;
+    width: 0;//width: 12%;
+    opacity: 0;
+    flex-shrink: 0;
+    transition: all 450ms;
+
+    &--details {
+        width: 100%; height: 15%;
+        min-width: 90px;
+        border-radius: 15px;
+        background-color: #798E6D;
+        margin-bottom: 15px;
+        padding: 3px;
+        font-size: 24px;
+        position: relative;
+    
+        @media (min-width: 1080px) {
+            border-radius: 30px;
+            font-size: 30px;
+            padding: 6px;
+        }
+        &--x {
+            position: absolute;
+            right: 0; top: 0;
+            height: 1em;
+            aspect-ratio: 1/1;
+            rotate: 45deg;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+    &--track {        
+        position: relative;
+        width: 100%; height: auto;
+        min-width: 90px; min-height: 72.5%;
+        border-radius: 15px; 
+        background-color: #798E6D; 
+        padding: 12px 3px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-evenly;
+    
+        @media (min-width: 1080px) {
+            border-radius: 30px;
+            padding: 24px 6px;
+        }
+        &--tofill {
+            display: flex;
+            justify-content: center;
+        }
+        &--head {
+            position: absolute;
+            left: 0; top: 24px;
+            width: 100%; height: 15px;
+            background-color: #41473C;
+            opacity: 0.6;
+        }
+        &--colspace {
+            width: 3px;
+            background-color: #41473C;
+            margin: 0 6px;
+        }        
+        &--column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            touch-action: none;
+
+            $row-width: 45px;
+            &--row {
+                width: $row-width; height: 14px;
+                border-top: 1px solid #41473C;
+            }
+            &--row.tr-r-lvl1 {opacity: 0.1;}
+            &--row.tr-r-lvl2 {opacity: 0.45;}
+            &--point {
+                position: absolute;
+                width: $row-width;
+                background-color: #BFD8AF;
+                border-radius: 6px;
+                z-index: 90;
+                overflow: hidden;
+                cursor: move;
+                //-webkit-user-drag: element;
+    
+                @media (min-height: 450px) {
+                    border-radius: 9px;
+                }
+                &--input {
+                    width: 100%;
+                    margin: 0; padding: 0; border: 0;
+                    background-color: #BFD8AF;
+                    font-size: large;
+                    color: #41473C;
+                    text-align: center;
+                    pointer-events: initial;
+                }
+                &--btm {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%; height: 12px;
+                    cursor: n-resize;
+                    background-color: #94ab8c;
+                }
+            }
+        }
+    }
+}
+.track.track-rend {
+    min-width: 12%;
+    width: fit-content;
+    opacity: 1;
+    padding-top: 3%; padding-left: 3%; 
+}
+
+.add-new {    
+    width: 18%;
+    padding: 3%;
+    flex-shrink: 0;
+    position: relative;
+    transition: top ease 300ms;
+
+    &--a {
+        width: 100%; height: 100%;
+        min-width: 90px;
+        border-radius: 15px;
+        background-color: #899D7E;
+        filter: brightness(1);
+        cursor: pointer;
+        transition: all linear 60ms;
+    
+        @media (min-width: 1080px) {
+            border-radius: 30px;
+        }
+        &--plus {
+            top: 48%;
+            color: #41473C;
+            font-size: 600%; font-weight: 540;
+        }
+    }
+}

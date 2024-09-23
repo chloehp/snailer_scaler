@@ -1,0 +1,72 @@
+.instrs-efcts {
+    background-color: #899D7E;
+    border-radius: 15px;
+    position: absolute;
+    width: 36%; height: 24%;
+    left: 51%; top: 3%;
+    overflow: hidden; 
+    display: flex;
+    
+    @media (min-width: 1080px) { border-radius: 30px; }
+    @media (orientation: portrait) {
+        left: 50%; top: 18%;
+        translate: -50%;
+        width: 60%; height: 18%;
+    }
+    &--sep {
+        width: 3px; height: 45%;
+        margin-top: 6%;
+        flex-shrink: 0;
+        background-color: #BFD8AF;
+    }
+    &--instruments {
+        width: 72%; height: 72%;
+        position: relative;
+        margin: 4.5%;
+        border-radius: 12px;
+        background-color: #41473C;
+        text-align: left;
+        //text-transform: uppercase;
+        color: #e1f0da;        
+        background-image: url(../../assets/img/kbEx1.svg);
+        background-repeat: no-repeat;
+        background-size: 69%;
+        background-position: 120% 39%;
+        overflow: hidden;
+
+        @media (min-height: 450px) {
+            margin: 6%;
+            border-radius: 15px;
+        }
+        h1 {margin-left: 15px;}
+    }
+    &--upbtn, &--dnbtn {
+        position: absolute;  
+        right: 3%;
+        width: 15%;
+        aspect-ratio: 3/2;
+        border-radius: 9px;
+        background-color: #41473C;
+        background-image: url(../../assets/symb/single-arrow.svg);
+        background-repeat: no-repeat;
+        background-size: 45%;
+        background-position: center;
+        transition: scale 300ms;
+
+        @media (min-height: 450px) { 
+            border-radius: 12px;
+            aspect-ratio: 15/14;
+        }
+    }
+    &--upbtn {top: 14%; rotate: 180deg;}
+    &--dnbtn {bottom: 14%;}
+    @media (min-width: 1080px) {     
+        &--upbtn:hover, &--dnbtn:hover { scale: 1.1; }
+    }
+}
+
+#add-effect {
+    cursor: pointer;
+    user-select: none;
+    height: 18%;
+}
